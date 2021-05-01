@@ -15,7 +15,7 @@
 <!--
 1. jQuery对象是一个包含所有匹配的任意多个dom元素的伪数组对象
 2. 基本行为
-  * size()/length: 包含的DOM元素个数 size() 在1.8版本后废弃了
+  * size()/length: 包含的DOM元素个数 size() 在3.0版本后废弃了
   * [index]/get(index): 得到对应位置的DOM元素
   * each(): 遍历包含的所有DOM元素
   * index(): 得到在所在兄弟元素中的下标
@@ -38,6 +38,32 @@
   /*需求2. 取出第2个button的文本*/
   console.log($buttons[1].innerHTML);
   console.log($buttons.get(1).innerHTML);
+
+  //需求3. 输出所有button标签的文本
+  $buttons.each(function (index,elm) {
+    console.log(index,elm.innerHTML);
+  })
+
+  $buttons.each(function () {
+    console.log(this.innerHTML);
+  })
+
+  //需求4. 输出'测试三'按钮是所有按钮中的第几个
+  console.log($('#btn3').index());
+
+  // $buttons[0].click(function () {
+  //   console.log('1点击了');
+  // })
+  // $buttons[1].click(function () {
+  //   console.log('2点击了');
+  // })
+  // $buttons[2].click(function () {
+  //   console.log('3点击了');
+  // })
+  // $buttons[3].click(function () {
+  //   console.log('4点击了');
+  // })
+
 </script>
 </body>
 </html>

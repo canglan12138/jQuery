@@ -11,7 +11,9 @@
 <div id="div2" class="box">class为box的div2</div>
 <div id="div3">div3</div>
 <span class="box">class为box的span</span>
+
 <br/>
+
 <ul>
   <li>AAAAA</li>
   <li title="hello">BBBBB</li>
@@ -41,6 +43,30 @@
    7. 选择有title属性的li元素
    8. 选择所有属性title为hello的li元素
    */
+
+  // 1. 选择第一个div
+  // $('div:first').css('background','red')
+
+  // 2. 选择最后一个class为box的元素
+  // $('.box:last').css('background','red')
+
+  // 3. 选择所有class属性不为box的div
+  // $('div:not(.box)').css('background','red')
+
+  // 4. 选择第二个和第三个li元素
+  // $('li:nth-child(2),li:nth-child(3)').css('background','red')
+
+  // 5. 选择内容为BBBBB的li
+  // $('li:contains("BBBBB")').css('background','red')
+
+  // 6. 选择隐藏的li
+  // console.log($('li:hidden').length, $('li:hidden')[0].innerHTML);
+
+  // 7. 选择有title属性的li元素
+  // $('li[title]').css('background','red')
+
+  // 8. 选择所有属性title为hello的li元素
+  $('li[title = hello]').css('background','red')
 </script>
 </body>
 

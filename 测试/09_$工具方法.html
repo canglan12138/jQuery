@@ -15,7 +15,57 @@
 -->
 <script src="js/jquery-1.10.1.js" type="text/javascript"></script>
 <script type="text/javascript">
+  // 1. $.each(): 遍历数组或对象中的数据
+  //遍历数组
+  $.each([0,1,2,3,4,5],function (index,item) {
+    console.log(index + ':' + item);
+  })
 
+  //遍历对象
+  $.each({
+    name: 'jack',
+    age: 16,
+    run: function () {
+      console.log('run~~~');
+    }
+  },function (key,value) {
+    console.log(key + ':' + value);
+  })
+
+  // 2. $.trim(): 去除字符串两边的空格
+  var str = '      lg       '
+  str = $.trim(str)
+  console.log('--' + str + '--');
+
+  // 3. $.type(obj): 得到数据的类型
+  console.log($.type($)); //function
+  console.log($.type([])); //array
+  console.log($.type({})); //object
+
+  // 4. $.isArray(obj): 判断是否是数组
+  console.log($.isArray([])); //true
+  console.log($.isArray({})) //false
+  console.log($.isArray($('body'))) //false
+
+  // 5. $.isFunction(obj): 判断是否是函数
+  console.log($.isFunction(jQuery));
+  console.log(jQuery instanceof Object);
+
+  // 6. $.parseJSON(json) : 解析json字符串转换为js对象/数组
+  //json字符串 转换为 js对象
+  console.log($.parseJSON('{"name": "jack", "age": 18}'));
+  //json字符串 转换为 js数组
+  console.log($.parseJSON('[{"name": "jack", "age": 18},{"name": "jack", "age": 18}]'));
+
+  //原生的 json字符串 转换为 js对象
+  console.log(JSON.parse('{"name": "jack", "age": 18}'));
+  //原生的 json字符串 转换为 js数组
+  console.log(JSON.parse('[{"name": "jack", "age": 18},{"name": "jack", "age": 18}]'));
+
+  //原生的 js对象 转换为 json字符串
+  console.log(JSON.stringify({"name": "jack", "age": 18}));
+  //原生的 js数组 转换为 json字符串
+  console.log(JSON.stringify([{"name": "jack", "age": 18},{"name": "jack", "age": 18}]));
 </script>
 </body>
 </html>

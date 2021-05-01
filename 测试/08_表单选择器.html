@@ -10,19 +10,28 @@
   用户名: <input type="text"/><br>
   密 码: <input type="password"/><br>
   爱 好:
-  <input type="checkbox" checked="checked"/>篮球
-  <input type="checkbox" checked="checked"/>足球
-  <input type="checkbox" checked="checked"/>羽毛球 <br>
+  <input type="checkbox" checked="checked" value="篮球"/>篮球
+  <input type="checkbox" value="足球"/>足球
+  <input type="checkbox" checked="checked" value="羽毛球"/>羽毛球
+
+  <br>
+
   性 别:
   <input type="radio" name="sex" value='male'/>男
   <input type="radio" name="sex" value='female'/>女<br>
-  邮 箱: <input type="text" name="email" disabled="disabled"/><br>
+  邮 箱: <input type="text" name="email" disabled="disabled"/>
+
+  <br>
+
   所在地:
   <select>
     <option value="1">北京</option>
     <option value="2" selected="selected">天津</option>
     <option value="3">河北</option>
-  </select><br>
+  </select>
+
+  <br>
+
   <input type="submit" value="提交"/>
 </form>
 <!--
@@ -38,6 +47,25 @@
    2. 显示选择爱好 的个数
    3. 显示选择的城市名称
    */
+
+  // 1. 选择不可用的文本输入框
+  // $('input:disabled').css('background','red')
+
+  // 2. 显示选择爱好 的个数
+  var $checkboxs = $('input[type = checkbox]')
+  //动态的显示选择爱好的个数和内容
+  $checkboxs.click(function () {
+    $checkboxs = $('input[type = checkbox]:checked')
+    console.log($checkboxs.length);
+    $checkboxs.each(function () {
+      console.log(this.value);
+    })
+  })
+
+  // 3. 显示选择的城市名称
+  $('input[type = submit]').click(function () {
+    alert($('select>option:selected').html());
+  })
 </script>
 </body>
 </html>

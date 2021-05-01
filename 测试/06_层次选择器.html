@@ -36,6 +36,18 @@
    3. 选中class为box的下一个li
    4. 选中ul下的class为box的元素后面的所有兄弟元素
    */
+
+  // 1. 选中ul下所有的的span
+  // $('ul span').css('background','yellow')
+
+  // 2. 选中ul下所有的子元素span
+  // $('ul>span').css('background','yellow')
+
+  // 3. 选中class为box的下一个li
+  // $('.box+li').css('background','yellow')
+
+  // 4. 选中ul下的class为box的元素后面的所有兄弟元素
+  $('.box~*').css('background','yellow')
 </script>
 </body>
 </html>
