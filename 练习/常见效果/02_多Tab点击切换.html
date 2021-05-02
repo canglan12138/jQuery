@@ -63,6 +63,30 @@
     50元包月详情：<br/>&nbsp;每月无限量随心打
   </div>
 </div>
+<script src="../../js/jquery-3.6.0.js"></script>
+<script>
+  /*隐藏了所有 div*/
+  // var $contents = $('#container>div')
+  // $('#tab>li').click(function () {
+  //   $contents.css('display','none')
+  //   let index = $(this).index()
+  //   $contents[index].style.display = 'block'
+  // })
 
+  //效率提高
+  /*只需要隐藏已经显示的div*/
+  var $contents = $('#container>div')
+  //用来保存当前显示的 div 的下标
+  let index = 0
+  $('#tab>li').click(function () {
+    //发生点击事件后，隐藏之前显示的 div
+    $contents[index].style.display = 'none'
+    //保存当前点击的下标
+    index = $(this).index()
+    //对应下标的div显示
+    $contents[index].style.display = 'block'
+  })
+
+</script>
 </body>
 </html>

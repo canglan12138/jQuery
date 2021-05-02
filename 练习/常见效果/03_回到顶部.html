@@ -23,6 +23,36 @@
 
 <div id="to_top">返回顶部</div>
 
+<script src="../../js/jquery-3.6.0.js"></script>
+<script>
+  $('#to_top').click(function () {
+    //方法一：没有效果，直接到顶部
+    // $('body,html').scrollTop(0)
+
+    //方法二：设置循环定时器，达到动画效果
+    /*获取页面对象*/
+    var $page = $('html')
+
+    /*保存当前滚动条距离顶部高度*/
+    var currentStop = $page.scrollTop()
+
+    //设置循环定时器
+    var timer = setInterval(function () {
+
+      //重新设置滚动条到顶部的距离
+      $page.scrollTop(currentStop - 25)
+
+      //保存设置后的滚动条到顶部的距离
+      currentStop = $page.scrollTop()
+
+      //当滚动条到顶部的距离为 0 时，清除定时器
+      if (currentStop <= 0) {
+        clearInterval(timer)
+      }
+    },1)
+  })
+</script>
+
 </body>
 
 </html>

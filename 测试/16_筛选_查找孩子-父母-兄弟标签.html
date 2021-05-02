@@ -46,6 +46,21 @@
    5. id为cc的li标签的所有兄弟li标签
    */
 
+  // 1. ul标签的第2个span子标签
+  // $('ul').children('span:eq(1)').css('background','red')
+
+  // 2. ul标签的第2个span后代标签
+  // $('ul').find('span:eq(1)').css('background','red')
+
+  // 3. ul标签的父标签
+  // $('ul').parent().css('background','red')
+
+  // 4. id为cc的li标签的前面的所有li标签
+  // $('ul>li#cc').prevAll('li').css('background','red')
+
+  // 5. id为cc的li标签的所有兄弟li标签
+  $('ul>li#cc').siblings('li').css('background','red')
+
 </script>
 </body>
 </html>

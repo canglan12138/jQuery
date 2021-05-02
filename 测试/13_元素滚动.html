@@ -36,6 +36,18 @@
    1. 得到div或页面滚动条的坐标
    2. 让div或页面的滚动条滚动到指定位置
    */
+
+  $('#btn1').click(function () {
+    // 1. 得到div或页面滚动条的坐标
+    console.log($('div').scrollTop());
+    console.log($('html').scrollTop() + $('body').scrollTop());
+  })
+
+  $('#btn2').click(function () {
+    $('div').scrollTop(300)
+    $('html,body').scrollTop(300)
+  })
+
 </script>
 </body>
 

@@ -19,6 +19,21 @@
    2. 设置所有p标签的文本颜色为red
    3. 设置第2个p的字体颜色(#ff0011),背景(blue),宽(300px), 高(30px)
    */
+
+  // 1. 得到第一个p标签的颜色
+  // console.log($('p:first').css('color'));
+
+  // 2. 设置所有p标签的文本颜色为red
+  $('p').css('color','red')
+
+  // 3. 设置第2个p的字体颜色(#ff0011),背景(blue),宽(300px), 高(30px)
+  $('p:eq(1)').css({
+    color: '#ff0011',
+    background: 'blue',
+    width: 300,
+    height: 30
+  })
+
 </script>
 </body>
 </html>

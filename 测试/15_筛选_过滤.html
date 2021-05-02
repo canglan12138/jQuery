@@ -39,6 +39,36 @@
    6. ul下li标签中有span子标签的
    */
 
+
+  /*注意：
+    第一句：直接封装含有匹配到的 dom元素 的jQuery对象
+    第二句：从已经封装好的包含多个匹配的 dom元素 的jQuery对象 过滤出想要的dom元素，再封装成jquery对象
+  * */
+  var $lis = $('ul>li')
+  // 1. ul下li标签第一个
+  // $('ul>li:first').css('background','red')
+  //   $lis.first().css('background','red')
+
+  // 2. ul下li标签的最后一个
+  // $('ul>li:last').css('background','red')
+  // $lis.last().css('background','red')
+
+  // 3. ul下li标签的第二个
+  // $('ul>li:eq(1)').css('background','red')
+  // $lis.eq(1).css('background','red')
+
+  // 4. ul下li标签中title属性为hello的
+  // $('ul>li[title = "hello"]').css('background','red')
+  // $lis.filter('[title = hello]').css('background','red')
+
+  // 5. ul下li标签中title属性不为hello的
+  // $('ul>li[title][title != "hello"]').css('background','red')
+  // $lis.filter('[title][title != "hello"]').css('background','red')
+  // $lis.not('[title = "hello"]').css('background','red')
+
+  // 6. ul下li标签中有span子标签的
+  // $('ul>li>span').css('background','red')
+  $lis.has('span').css('background','red')
 </script>
 </body>
 </html>
