@@ -78,6 +78,70 @@
    6. 点击.inner区域, 外部点击监听不响应
    7. 点击链接, 如果当前时间是偶数不跳转
    */
+
+  // 1. 给.out绑定点击监听(用两种方法绑定)
+  $('.out').click(function () {
+    console.log('clickout');
+  })
+  // $('.out').on('click',function () {
+  //   console.log('clickout');
+  // })
+
+  // 2. 给.inner绑定鼠标移入和移出的事件监听(用3种方法绑定)
+  // $('.inner').mouseenter(function () {
+  //   console.log('鼠标移入');
+  // }).mouseleave(function () {
+  //   console.log('鼠标移出');
+  // })
+
+  // $('.inner')
+  //   .on('mouseenter',function () {
+  //     console.log('鼠标移入on');
+  //   })
+  //   .on('mouseleave',function () {
+  //     console.log('鼠标移出on');
+  //   })
+  //
+  // $('.inner').hover(function () {
+  //   console.log('鼠标移入hover');
+  // },function () {
+  //   console.log('鼠标移出hover');
+  // })
+
+  $('.inner').mouseover(function () {
+    console.log('移入');
+  })
+
+  // 3. 点击btn1解除.inner上的所有事件监听
+  $('#btn1').click(function () {
+    $('.inner').off()
+  })
+
+  // 4. 点击btn2解除.inner上的mouseover事件
+  $('#btn2').click(function () {
+    $('.inner').off('mouseover')
+  })
+
+  // 5. 点击btn3得到事件坐标
+  $('#btn3').click(function (event) {
+    console.log(event.clientX, event.clientY);
+    console.log(event.pageX, event.pageY);
+    console.log(event.offsetX, event.offsetY);
+  })
+
+  // 6. 点击.inner区域, 外部点击监听不响应
+  $('.inner').click(function (event) {
+    console.log('inner');
+    event.stopPropagation()
+  })
+
+  // 7. 点击链接, 如果当前时间是偶数不跳转
+  $('a').click(function (event) {
+    if (Date.now() % 2 === 0) {
+      event.preventDefault()
+    }
+  })
+
 </script>
 </body>
 </html>

@@ -82,6 +82,29 @@
    5. 将在id为ul2的ul下的li(title为hello)全部替换为p
    6. 移除id为ul2的ul下的所有li
    */
+
+  // 1. 向id为ul1的ul下添加一个span(最后)
+  var $ul1 = $('#ul1')
+  // $ul1.append('<span>append() 方法</span>')
+  $('<span>appendTo() 方法</span>').appendTo($ul1)
+
+  // 2. 向id为ul1的ul下添加一个span(最前)
+  // $ul1.prepend('<span>prepend() 方法</span>')
+  $('<span>prependTO() 方法</span>').prependTo($ul1)
+
+  // 3. 在id为ul1的ul下的li(title为hello)的前面添加span
+  $ul1.children('li[title = hello]').before('<span>before() 方法</span>')
+
+  // 4. 在id为ul1的ul下的li(title为hello)的后面添加span
+  $ul1.children('li[title = hello]').after('<span>after() 方法</span>')
+
+  // 5. 将在id为ul2的ul下的li(title为hello)全部替换为p
+  var $ul2 = $('#ul2')
+  $ul2.children('li[title = hello]').replaceWith('<p>replaceWith() 方法</p>')
+
+  // 6. 移除id为ul2的ul下的所有li
+  $('#ul2>li').remove()//删除匹配到的元素
+  $ul2.empty()//将匹配的元素下的所有子元素删除，匹配的元素会保留
 </script>
 </body>
 </html>

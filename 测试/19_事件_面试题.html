@@ -69,7 +69,17 @@
 -->
 <script src="js/jquery-1.10.1.js" type="text/javascript"></script>
 <script type="text/javascript">
+	$('.div1').mouseover(function () {
+    console.log('mouseover移入');
+  }).mouseout(function () {
+    console.log('mouseout移出');
+  })
 
+  $('.div3').mouseenter(function () {
+    console.log('mouseenter移入');
+  }).mouseleave(function () {
+    console.log('mouseleave移出');
+  })
 </script>
 </body>
 </html>

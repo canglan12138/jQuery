@@ -30,6 +30,27 @@
    2. 点击 btn1 就添加一个 li
   */
 
+  // 1. 点击 li 背景就会变为红色
+  $('ul>li').click(function () {
+    this.style.backgroundColor = 'red'
+  })
+
+  //事件委派
+  $('ul').on('click','li',function () {
+    this.style.backgroundColor = 'red'
+  })
+
+  // 2. 点击 btn 就添加一个 li
+  $('#btn').click(function () {
+    $('ul').append('<li>新增的li~~~</li>')
+
+      //没有事件委派，为新增的 li 绑定监听事件
+      // .children('li:last').click(function () {
+      // this.style.backgroundColor = 'red'
+      // })
+  })
+
+
 </script>
 </body>
 </html>

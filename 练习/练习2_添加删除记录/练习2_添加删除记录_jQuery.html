@@ -69,5 +69,79 @@
   </table>
 </div>
 
+<script src="../../js/jquery-3.6.0.js"></script>
+<script>
+  /*
+		 功能说明:
+			 1. 点击'Submit', 根据输入的信息在表单中生成一行员工信息
+			 2. 点击Delete链接, 提示删除当前行信息, 点击确定后删除信息
+		 技术要点:
+			 1. DOM查询
+			 2. 绑定事件监听
+			 3. DOM增删改
+			 5. 取消事件的默认行为
+		 */
+
+  // 1. 点击'Submit', 根据输入的信息在表单中生成一行员工信息
+  $('#addEmpButton').click(function () {
+
+    /*拿到输入框中的数据*/
+    var $empName = $('#empName')
+    var $email = $('#email')
+    var $salary = $('#salary')
+
+    var empName = $empName.val()
+    var email = $email.val()
+    var salary = $salary.val()
+
+    /*判断输入框中的数据是否为空*/
+    if (empName == '' || email == '' || salary == '') {
+      return alert('请输入完整信息')
+    }
+
+    /*向列表中添加新行，同时监听删除点击事件*/
+    $('#employeeTable').append('<tr>' +
+      '<td>' + empName +
+      '</td>'+
+      '<td>' +email +
+      '</td>'+
+      '<td>' + salary +
+      '</td>'+
+      '<td><a href="deleteEmp?id=003">Delete</a></td>'+
+      '</tr>')
+
+    /*清空表单中的数据*/
+    $empName.val('')
+    $email.val('')
+    $salary.val('')
+  })
+
+  // 2. 点击Delete链接, 提示删除当前行信息, 点击确定后删除信息
+  $('#employeeTable').on('click','a',clickdelete) //事件委派
+
+  /*定义删除函数*/
+  function clickdelete() {
+
+    /*拿到 td*/
+    var $td = $(this).parent()
+
+    /*拿到要删除的姓名*/
+    var deleteName = $td.siblings('td:first').html()
+
+    /*弹出提示框，是否确定删除*/
+    var state = confirm('确定删除'+ deleteName +'吗？')
+    if (state == true) {
+
+      /*拿到 tr 删除整行*/
+      var $tr = $td.parent()
+      $tr.remove()
+    }
+
+    /*取消默认提交事件*/
+    return false
+  }
+
+</script>
+
 </body>
 </html>

@@ -36,7 +36,21 @@
 -->
 <script src="js/jquery-1.10.1.js"></script>
 <script>
+  // 1. 点击 li 背景就会变为红色
+  $('ul').on('click','li',function () {
+    this.style.backgroundColor = 'red'
+  }).on('mouseenter','li',function () {
+    console.log('移入');
+  })
 
+  // 2. 点击 btn 就添加一个 li
+  $('#btn1').click(function () {
+    $('ul').append('<li>新增的li~~~</li>')
+  })
+
+  $('#btn2').click(function () {
+    $('ul').off('mouseenter')
+  })
 </script>
 </body>
 </html>
