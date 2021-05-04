@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<button>按钮</button>
+<script>
+var btn = document.getElementsByTagName('button')[0]
+var bool = false
+
+/*
+* 回调函数中的判断语句的作用：
+* 	在某个时刻或事件发生后 将回调函数加入到回调队列中
+* 	回调函数中代码的有无受到判断语句的影响
+* */
+	btn.onclick = function () {
+		if (bool === true) {
+      console.log('onclick');
+		}
+    settime()
+  }
+
+  function settime() {
+    setTimeout(function () {
+      if (bool) {
+        console.log('第二个');
+        return
+      }
+      bool = true
+      console.log('123');
+    },3000)
+  }
+  settime()
+</script>
+
+</body>
+</html>
