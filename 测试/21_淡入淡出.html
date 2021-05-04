@@ -45,15 +45,29 @@
    2. 点击btn3, 慢慢淡入
    3. 点击btn3, 淡出/淡入切换，动画结束时提示“动画结束了”
    */
-
+var movout = false
+  var movin = false
   //1. 点击btn1, 慢慢淡出
   $('#btn1').click(function () {
-    $('.div1').fadeOut(2000)
+    if (movout) {
+      return
+    }
+    movout = true
+    $('.div1').fadeOut(2000,function () {
+      movout = false
+    })
   })
 
   //2. 点击btn3, 慢慢淡入
   $('#btn2').click(function () {
-    $('.div1').fadeIn(2000)
+    //阻止回调函数多次进入到回调队列
+    if (movin) { //为 true 时，表明回调函数已存在于回调队列中，不需要再把回调函数放入队列中
+      return
+    }
+    movin = true //已经在回调队列中
+    $('.div1').fadeIn(2000,function () {
+      movin = false
+    })
   })
 
   //点击btn3, 淡出/淡入切换，动画结束时提示“动画结束了”
