@@ -22,14 +22,15 @@
 <body>
 <button id="btn1">瞬间显示</button>
 <button id="btn2">慢慢显示</button>
-<button id="btn3">慢慢隐藏</button>
-<button id="btn4">显示隐藏切换</button>
+<button id="btn3">瞬间隐藏</button>
+<button id="btn4">慢慢隐藏</button>
+<button id="btn5">显示隐藏切换</button>
 
 <div class="div1">
 </div>
 
 <!--
-显示隐藏，默认没有动画
+显示隐藏，默认没有动画 改变元素的(opacity/width/height)
 1. show(): (不)带动画的显示
 2. hide(): (不)带动画的隐藏
 3. toggle(): (不)带动画的切换显示/隐藏
@@ -40,10 +41,35 @@
   需求:
   1. 点击btn1, 立即显示
   2. 点击btn2, 慢慢显示
-  3. 点击btn3, 慢慢隐藏
-  4. 点击btn4, 切换显示/隐藏
+  3. 点击btn3, 立即隐藏
+  4. 点击btn4, 慢慢隐藏
+  5. 点击btn5, 切换显示/隐藏
    */
 
+  // 1. 点击btn1, 立即显示
+  $('#btn1').click(function () {
+    $('.div1').show()
+  })
+
+  // 2. 点击btn2, 慢慢显示
+  $('#btn2').click(function () {
+    $('.div1').show(2000)
+  })
+
+  // 3. 点击btn3, 立即隐藏
+  $('#btn3').click(function () {
+    $('.div1').hide()
+  })
+
+  // 4. 点击btn4, 慢慢隐藏
+  $('#btn4').click(function () {
+    $('.div1').hide(2000)
+  })
+
+  // 点击btn5, 切换显示/隐藏
+  $('#btn5').click(function () {
+    $('.div1').toggle(2000)
+  })
 </script>
 </body>
 </html>

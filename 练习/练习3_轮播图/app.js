@@ -16,149 +16,144 @@ $(function () {
   var $points = $('#pointsDiv>span')
   var $prev = $('#prev')
   var $next = $('#next')
-  var PAGE_WIDTH = 600 //一页的宽度
-  var TIME = 400 // 翻页的持续时间
-  var ITEM_TIME = 20 // 单元移动的间隔时间
-  var imgCount = $points.length
-  var index = 0 //当前下标
-  var moving = false // 标识是否正在翻页(默认没有)
 
+  const PAGE_WIDTH = 600
+  const TIME = 400
+  const ITEM_TIME = 20
+  const COUNT = $points.length
+  var current_index = 0 //默认第一个按钮
+  var moving = false //默认没有翻页
 
   // 1. 点击向右(左)的图标, 平滑切换到下(上)一页
+  //向右翻页
   $next.click(function () {
-    // 平滑翻到下一页
-    nextPage(true)
+    clearInterval(auto_timer)
+    clickChange(true)
+    auto_timer = setInterval(clickChange,3000)
   })
+
+  //向左翻页
   $prev.click(function () {
-    // 平滑翻到上一页
-    nextPage(false)
+    clearInterval(auto_timer)
+    clickChange(false)
+    auto_timer = setInterval(clickChange,3000)
   })
 
   // 3. 每隔3s自动滑动到下一页
-  var intervalId = setInterval(function () {
-    nextPage(true)
-  }, 1000)
+  var auto_timer = setInterval(clickChange,3000)
 
   // 4. 当鼠标进入图片区域时, 自动切换停止, 当鼠标离开后,又开始自动切换
   $container.hover(function () {
-    // 清除定时器
-    clearInterval(intervalId)
-  }, function () {
-    intervalId = setInterval(function () {
-      nextPage(true)
-    }, 1000)
+    clearInterval(auto_timer)
+  },function () {
+    auto_timer = setInterval(clickChange,3000)
   })
 
   // 6. 点击圆点图标切换到对应的页
   $points.click(function () {
-    // 目标页的下标
-    var targetIndex = $(this).index()
-    // 只有当点击的不是当前页的圆点时才翻页
-    if(targetIndex!=index) {
-      nextPage(targetIndex)
+    clearInterval(auto_timer)
+
+    //获取到点击按钮的下标
+    /*
+    * 注意：因为发生点击事件时，调用了动画里的切换按钮函数，所以要 -1
+    * */
+    var click_current_point = $(this).index() - 1
+    //判断大小，来决定动画的方向
+    if ($(this).index() > current_index) {
+      //定位到点击的按钮
+      click_point(click_current_point)
+      //第二个参数，决定了图片的偏移量
+      clickChange(true,click_current_point+1)
+    }else if ($(this).index() < current_index) {
+      click_point(click_current_point)
+      clickChange(false,click_current_point+1)
     }
+    auto_timer = setInterval(clickChange,3000)
+
   })
 
-  /**
-   * 平滑翻页
-   * @param next
-   * true: 下一页
-   * false: 上一页
-   * 数值: 指定下标页
-   */
-  function nextPage (next) {
-    /*
-      总的时间: TIME=400
-      单元移动的间隔时间: ITEM_TIME = 20
-      总的偏移量: offset
-      单元移动的偏移量: itemOffset = offset/(TIME/ITEM_TIME)
-
-      启动循环定时器不断更新$list的left, 到达目标处停止停止定时器
-     */
-
-    //如果正在翻页, 直接结束
-    if(moving) { //已经正在翻页中
+  //翻页函数
+  function clickChange(next,point_index) {
+    //如果正在翻页，点击无效
+    if (moving) {
       return
     }
-    moving = true // 标识正在翻页
+    moving = true //标识正在翻页
+    //没有传参，自动轮播
+    if (next === undefined) {
+      next = true
+    }
+    /*
+    * 总的动画时间：TIME = 400
+    * 单元移动的间隔时间：ITEM_TIME = 20
+    * 总的偏移量：offset
+    * 单元移动的偏移量：offset/(TIME/ITEM_TIME)
+    * */
+    //动画效果
+    //点击按钮 切换图片
+    //获取当前列表的位置
+    var currentLeft = $list.position().left
 
-    // 总的偏移量: offset
-    var offset = 0
-    // 计算offset
-    if(typeof next==='boolean') {
-      offset = next ? -PAGE_WIDTH : PAGE_WIDTH
-    } else {
-      offset = -(next-index)* PAGE_WIDTH
+    //没有传第二个参数，则为图片顺序切换
+    if (point_index === undefined) {
+      var offset = next ? -PAGE_WIDTH : PAGE_WIDTH
+    }else {
+      //过渡到指定图片
+      var offset = next ? -PAGE_WIDTH*(point_index+1-(-currentLeft/PAGE_WIDTH))
+          : PAGE_WIDTH*(-(point_index+1-(-currentLeft/PAGE_WIDTH)))
     }
 
-    // 计算单元移动的偏移量: itemOffset
-    var itemOffset = offset/(TIME/ITEM_TIME)
-    // 得到当前的left值
-    var currLeft = $list.position().left
-    // 计算出目标处的left值
-    var targetLeft = currLeft + offset
+    //单元移动的偏移量
+    var item_offset = offset/(TIME/ITEM_TIME)
 
-    // 启动循环定时器不断更新$list的left, 到达目标处停止停止定时器
-    var intervalId = setInterval(function () {
-      // 计算出最新的currLeft
-      currLeft += itemOffset
-      if(currLeft===targetLeft) { // 到达目标位置
-        // 清除定时器
-        clearInterval(intervalId)
+    //获取目标距离
+    var target = currentLeft + offset
 
-        // 标识翻页停止
+    var timer = setInterval(function () {
+      //重新定位
+      currentLeft += item_offset
+      if (target === currentLeft) {
+        //清除定时器
+        clearInterval(timer)
+
+        //翻页停止
         moving = false
-
-        // 如果到达了最右边的图片(1.jpg), 跳转到最左边的第2张图片(1.jpg)
-        if(currLeft===-(imgCount+1) * PAGE_WIDTH) {
-          currLeft = -PAGE_WIDTH
-        } else if(currLeft===0){
-          // 如果到达了最左边的图片(5.jpg), 跳转到最右边的第2张图片(5.jpg)
-          currLeft = -imgCount * PAGE_WIDTH
-        }
-
-      }
-      // 设置left
-      $list.css('left', currLeft)
-    }, ITEM_TIME)
-
-    // 更新圆点
-    updatePoints(next)
-  }
-
-  /**
-   * 更新圆点
-   * @param next
-   */
-  function updatePoints (next) {
-
-    // 计算出目标圆点的下标targetIndex
-    var targetIndex = 0
-    if(typeof next === 'boolean') {
-      if(next) {
-        targetIndex = index + 1   // [0, imgCount-1]
-        if(targetIndex===imgCount) {// 此时看到的是1.jpg-->第1个圆点
-          targetIndex = 0
-        }
-      } else {
-        targetIndex = index - 1
-        if(targetIndex===-1) { // 此时看到的是5.jpg-->第5个圆点
-          targetIndex = imgCount-1
+        //判断当前是第几张图片
+        //第六张1.jpg
+        if (currentLeft === -(COUNT + 1) * PAGE_WIDTH) {
+          currentLeft = -PAGE_WIDTH
+          //第一张5.jpg
+        }else if (currentLeft === 0) {
+          currentLeft = -COUNT * PAGE_WIDTH
         }
       }
-    } else {
-      targetIndex = next
+      $list.css('left',currentLeft)
+    },ITEM_TIME)
+
+    //按钮更新
+    $($points[current_index]).removeClass('on')
+    if (next === true) {
+      current_index++
+    }else if(next === false && point_index === undefined){
+      current_index--
+    }else {
+      current_index++
     }
 
+    if (current_index > $points.length - 1) {
+      current_index = 0
+    }else if (current_index < 0) {
+      current_index = $points.length - 1
+    }
+    $($points[current_index]).addClass('on')
 
-    // 将当前index的<span>的class移除
-    // $points.eq(index).removeClass('on')
-    $points[index].className = ''
-    // 给目标圆点添加class='on'
-    // $points.eq(targetIndex).addClass('on')
-    $points[targetIndex].className = 'on'
-
-    // 将index更新为targetIndex
-    index = targetIndex
   }
+
+  //点击小按钮
+  function click_point(point_index) {
+    $($points[current_index]).removeClass('on')
+    current_index = point_index
+    $($points[current_index]).addClass('on')
+  }
+
 })
