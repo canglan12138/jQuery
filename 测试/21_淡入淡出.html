@@ -49,7 +49,7 @@
   var movin = false
   //1. 点击btn1, 慢慢淡出
   $('#btn1').click(function () {
-    if (movout) { //触发点击事件，回调函数加入到回调队列中，如果 movout === true 回调函数中的代码只有 return 此回调函数中代码为空 在事件循环遍历调用队列中的回调函数时，此回调函数就没有任何作用
+    if (movout) { //触发点击事件，回调函数加入到回调队列中，如果 movout === true 回调函数中的代码只有 return 此回调函数中代码为空 在事件循环遍历调用队列中的此回调函数时，此回调函数就没有任何作用
       return
     }
     movout = true
