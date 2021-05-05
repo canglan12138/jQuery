@@ -24,7 +24,9 @@ $(function () {
   clickTabs()
 
   // 6. 点击切换地址tab
+  //默认选中第一个标签的下标
   var before_li = 0
+
   function clickTabs() {
     var $lis = $('#store_tabs > li')
 
@@ -36,9 +38,16 @@ $(function () {
       // this.className = 'hover'
 
       /*jQuery*/
+      //清除标签样式
       $($lis[before_li]).removeClass('hover')
+
+      //获取到当前点击的标签的下标
       var current_li = $(this).index()
+
+      //保存当前点击标签的下标
       before_li = current_li
+
+      //点击的标签切换样式
       $($lis[current_li]).addClass('hover')
     })
   }
@@ -56,6 +65,7 @@ $(function () {
           .prevAll('div:lt(1)').hide()
     })
 
+    //点击右上角的 x 地址关闭
     $store_close.click(function () {
       $(this)
           .hide()
@@ -64,20 +74,28 @@ $(function () {
   }
 
   // 4. 点击显示或者隐藏更多的分享图标
+  //默认隐藏
   var state = false
+
   function share() {
     $('#shareMore').click(function () {
       var $parent = $('#shareMore').parent()
       var $b = $('#shareMore > b')
+
+      /*
+      * 如果隐藏，让其显示
+      * */
       if (!state) {
         $parent.css('width',200)
         $parent.children('[style]').show()
         $b.addClass('backword')
-      }else if (state === true) {
+      }else{
         $parent.css('width',155)
         $parent.children('[style]').hide()
         $b.removeClass()
       }
+
+      //更改显示状态
       state = !state
     })
   }
@@ -85,6 +103,7 @@ $(function () {
   // 3. 输入搜索关键字, 列表显示匹配的结果
   function search() {
     $('#txtSearch')
+        //绑定keyup focus 事件
         .on('keyup focus',function () {
       var txt = this.value.trim()
       if (txt) {
