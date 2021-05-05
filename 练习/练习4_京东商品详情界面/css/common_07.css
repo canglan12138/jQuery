@@ -8,7 +8,7 @@ body,a
 *
 {
     margin:0px;
-    
+
     padding:0px;
     border:none;
     list-style:none;
@@ -44,7 +44,7 @@ a:hover {text-decoration:underline;}
 }
 #top_box
 {
-    height:30px;    
+    height:30px;
 }
 
 /*�������ġ��ղؾ�����*/
@@ -74,7 +74,7 @@ a:hover {text-decoration:underline;}
 {
     height: 12px;
     border-left: 1px solid #DDD;
-    padding:0px 5px 0px 0px;    
+    padding:0px 5px 0px 0px;
 }
 li.vip a
 {
@@ -87,12 +87,12 @@ li.dakehu a
     padding-left:30px;
 }
 li.app_jd label,li.service label,li.site_nav label
-{    
+{
     display:block;
     height:26px;
     line-height:26px;
     padding-left:5px;
-    margin-top:2px;    
+    margin-top:2px;
     border:1px solid transparent;
     position:relative;
     z-index:2;
@@ -109,13 +109,13 @@ li.app_jd label:hover,li.service label:hover,li.site_nav label:hover
     border:1px solid #DDD;
     border-bottom-width:0px;
     z-index:10;
-} 
+}
 li.app_jd label:hover
 {
     background:#fff url(../images/iconlist_2.png) -126px -397px no-repeat;
-} 
+}
 li.app_jd  label a,li.service label a,li.site_nav label a
-{ 
+{
     padding:8px 19px 5px 0px;
     background:url(../images/jt_down.jpg) 55px center no-repeat;
 }
@@ -163,7 +163,7 @@ li.app_jd  label a:hover,li.service label a:hover,li.site_nav label a:hover
 {
     width: 97px;
     height: 29px;
-    display: block;    
+    display: block;
     margin-bottom:6px;
 }
 #app_jd_items a.app
@@ -178,12 +178,12 @@ li.app_jd  label a:hover,li.service label a:hover,li.site_nav label a:hover
 #service_items
 {
     display:none;
-    position:absolute;    
+    position:absolute;
     left:6px;
     top:29px;
     border:1px solid #ddd;
     background-color:#fff;
-    box-shadow:0 0 10px #DDD;    
+    box-shadow:0 0 10px #DDD;
     z-index:3;
 }
 #service_items li
@@ -211,7 +211,7 @@ li.app_jd  label a:hover,li.service label a:hover,li.site_nav label a:hover
 {
     clear:left;
     line-height: 20px;
-    text-align:left;    
+    text-align:left;
     padding-top:5px;
 }
 #site_nav_items div
@@ -239,7 +239,7 @@ li.app_jd  label a:hover,li.service label a:hover,li.site_nav label a:hover
 #top_main>a
 {
     display:block;
-    width:330px;    
+    width:330px;
 }
 
 #search_box
@@ -250,7 +250,7 @@ li.app_jd  label a:hover,li.service label a:hover,li.site_nav label a:hover
 }
 
 
-#search_helper 
+#search_helper
 {
     overflow: hidden;
     position: absolute;
@@ -258,7 +258,7 @@ li.app_jd  label a:hover,li.service label a:hover,li.site_nav label a:hover
     left: 0px;
     width: 416px;
     border: 1px solid #E4393C;
-    background: #fff;    
+    background: #fff;
     box-shadow: 0 0 5px #999;
     display:none;
     z-index: 2;
@@ -280,7 +280,7 @@ li.app_jd  label a:hover,li.service label a:hover,li.site_nav label a:hover
     color:#aaa;
 }
 #search_helper  ul
-{    
+{
     padding-right:5px;
     border-bottom:1px solid #ccc;
 }
@@ -313,7 +313,7 @@ input.text
     line-height: 20px;
     color: #999;
     font-family: arial,"\5b8b\4f53";
-    font-size: 14px;    
+    font-size: 14px;
 }
 input.button
 {
@@ -400,16 +400,16 @@ div.my_jd_mt:hover
     border-bottom: 1px solid #EEE;
     line-height: 25px;
 }
-#my_jd_items p a 
+#my_jd_items p a
 {
     color: #005EA7;
     margin-left:3px;
 }
 #my_jd_items ul
 {
-    border-right: 1px solid #F1F1F1; 
+    border-right: 1px solid #F1F1F1;
     width: 134px;
-    padding: 0 10px;       
+    padding: 0 10px;
 }
 #my_jd_items li a
 {
@@ -511,8 +511,8 @@ div.settle_up_mt:hover
     margin: 10px auto;
     background: #E64346;
     border:1px solid yellow;
-}    
-      
+}
+
 #category
 {
     width:210px;
@@ -541,7 +541,7 @@ div.settle_up_mt:hover
     color: #fff;
     font-weight: bold;
     font-size:15px;
-    text-decoration: none;  
+    text-decoration: none;
         line-height:40px;
 }
 #nav_items li a:hover
@@ -579,9 +579,9 @@ div.settle_up_mt:hover
     float:right;
     margin-top:10px;
 }
-            
+
 #category_items{
-    display: none; 
+    display: none;
     position: absolute;
     top: 40px;
     width: 203px;
@@ -610,7 +610,7 @@ div.settle_up_mt:hover
     height: 28px;
     line-height: 28px;
     border-width: 1px 0;
-    font-weight: 400;                                
+    font-weight: 400;
     background-image: url(../images/youjiantou.png);
     background-repeat: no-repeat;
     background-position: right center;
@@ -619,9 +619,9 @@ div.settle_up_mt:hover
 {
     border-top:1px solid #DDD;
     border-bottom:1px solid #DDD;
-    background-image: none; 
+    background-image: none;
     background-color:#fff;
-    z-index:3;     
+    z-index:3;
 }
 .cate_item>h3>a
 {
@@ -668,16 +668,16 @@ div.settle_up_mt:hover
     color: #E4393C;
     text-decoration: underline;
     font-weight:700;
-}    
+}
 .sub_cate_items p
 {
     width:400px;
     line-height:22px;
     float:left;
     margin:0px;
-}             
+}
 .sub_cate_items p a
-{                
+{
     height:22px;
     line-height: 22px;
     text-align: right;
@@ -687,12 +687,12 @@ div.settle_up_mt:hover
     margin: 4px 0;
     border-left: 1px solid #ccc;
     color:#666;
-    text-decoration:none;    
-} 
+    text-decoration:none;
+}
 .sub_cate_items p a:hover
 {
     color:red;
-    text-decoration:underline;     
+    text-decoration:underline;
 }
 
 .sub_cate_banner
@@ -715,19 +715,19 @@ div.settle_up_mt:hover
 .sub_cate_banner li
 {
     width: 194px;
-    float:left;                
+    float:left;
 }
 .sub_cate_banner li a
 {
     line-height:20px;
-    color:#666;            
-    text-decoration:none; 
+    color:#666;
+    text-decoration:none;
 }
 .sub_cate_banner li a:hover
-{        
-    text-decoration:underline; 
-}      
-   
+{
+    text-decoration:underline;
+}
+
 div.close
 {
     position: absolute;
@@ -762,7 +762,7 @@ div.close
 {
     display:inline-block;
     width:40px;
-    height:40px;  
+    height:40px;
     float:left;
     margin:5px 5px 0px 40px;
 }
@@ -930,12 +930,13 @@ p.special_service {background:url(../images/iconlist_2.png) 0px -149px no-repeat
 }
 
 /*�Ҳ�ĸ�����*/
-#side_panel 
+#side_panel
 {
     position:fixed;
     right: 43.5px;
     bottom: 65px;
     display: block;
+    z-index: 999;
 }
 #side_panel a
 {
@@ -989,7 +990,7 @@ p.special_service {background:url(../images/iconlist_2.png) 0px -149px no-repeat
 /*����Ч��*/
 @keyframes myfirst
 {
-    from 
+    from
     {
         transform: rotate(0deg);
         -ms-transform: rotate(0deg);		/* IE 9 */
@@ -997,7 +998,7 @@ p.special_service {background:url(../images/iconlist_2.png) 0px -149px no-repeat
         -o-transform: rotate(0deg);		/* Opera */
         -moz-transform: rotate(0deg);		/* Firefox */
     }
-    to 
+    to
     {
         transform: rotate(720deg);
         -ms-transform: rotate(720deg);		/* IE 9 */
@@ -1009,7 +1010,7 @@ p.special_service {background:url(../images/iconlist_2.png) 0px -149px no-repeat
 
 @-webkit-keyframes myfirst
 {
-    from 
+    from
     {
         transform: rotate(0deg);
         -ms-transform: rotate(0deg);		/* IE 9 */
@@ -1017,7 +1018,7 @@ p.special_service {background:url(../images/iconlist_2.png) 0px -149px no-repeat
         -o-transform: rotate(0deg);		/* Opera */
         -moz-transform: rotate(0deg);		/* Firefox */
     }
-    to 
+    to
     {
         transform: rotate(720deg);
         -ms-transform: rotate(720deg);		/* IE 9 */
@@ -1029,7 +1030,7 @@ p.special_service {background:url(../images/iconlist_2.png) 0px -149px no-repeat
 
 @-moz-keyframes myfirst
 {
-    from 
+    from
     {
         transform: rotate(0deg);
         -ms-transform: rotate(0deg);		/* IE 9 */
@@ -1037,7 +1038,7 @@ p.special_service {background:url(../images/iconlist_2.png) 0px -149px no-repeat
         -o-transform: rotate(0deg);		/* Opera */
         -moz-transform: rotate(0deg);		/* Firefox */
     }
-    to 
+    to
     {
         transform: rotate(720deg);
         -ms-transform: rotate(720deg);		/* IE 9 */
@@ -1049,7 +1050,7 @@ p.special_service {background:url(../images/iconlist_2.png) 0px -149px no-repeat
 
 @-o-keyframes myfirst
 {
-    from 
+    from
     {
         transform: rotate(0deg);
         -ms-transform: rotate(0deg);		/* IE 9 */
@@ -1057,7 +1058,7 @@ p.special_service {background:url(../images/iconlist_2.png) 0px -149px no-repeat
         -o-transform: rotate(0deg);		/* Opera */
         -moz-transform: rotate(0deg);		/* Firefox */
     }
-    to 
+    to
     {
         transform: rotate(720deg);
         -ms-transform: rotate(720deg);		/* IE 9 */

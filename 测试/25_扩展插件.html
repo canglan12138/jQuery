@@ -50,6 +50,26 @@
      * reverseCheck() : 全反选
    */
 
+  console.log($.min(1, 2));
+  console.log($.max(1, 2));
+
+  var str = '   at guigu  '
+  console.log('----' + $.leftTrim(str) + '---');
+  console.log('----' + $.rightTrim(str) + '---');
+
+
+  var $checkboxs = $(':checkbox[name = items]')
+  $('#checkedAllBtn').click(function () {
+    $checkboxs.checkAll()
+  })
+
+  $('#checkedNoBtn').click(function () {
+    $checkboxs.unCheckAll()
+  })
+
+  $('#reverseCheckedBtn').click(function () {
+    $checkboxs.reverseCheck()
+  })
 </script>
 </body>
 </html>
