@@ -55,6 +55,84 @@ jQuery动画本质 : 在指定时间内不断改变元素样式值来实现的
      3.停止并结束当前动画，开始下一个动画
    */
 
+  // 1.逐渐扩大
+    // 1.宽度扩大
+  // $('#btn1').click(function () {
+  //   $('.div1').animate({
+  //     width : 200
+  //   },1000)
+  // })
+
+    // 2.宽度和高度扩大
+  // $('#btn1').click(function () {
+  //   $('.div1').animate({
+  //     width : 200,
+  //     height : 200
+  //   },1000)
+  // })
+
+    // 3.先宽度扩大后高度扩大
+  $('#btn1').click(function () {
+    $('.div1')
+      .animate({
+        width : 200
+      },1000)
+      .animate({
+        height : 200
+      },1000)
+  })
+
+  // 2.向右移动
+    // 1.向右移动 固定的200px
+  // $('#btn2').click(function () {
+  //   $('.div1').animate({
+  //       left : 600
+  //     },1000,function () {
+  //     var left = $('.div1').position().left
+  //     alert(left)
+  //   })
+  // })
+
+    // 2.基于当前位置向右移动 200px
+  $('#btn2').click(function () {
+    $('.div1').animate({
+      left : '+=600'
+    },1000,function () {
+      var left = $('.div1').position().left
+      // alert(left)
+    })
+  })
+
+
+  // 3.向左移动
+    // 1.向右移动 固定的200px
+    // 2.基于当前位置向右移动 200px
+    // 3.判断红框是否正在移动，如果正在移动的时候点击‘向左’按钮，打印出：‘别闹，正在动呢...’
+  var moving = false
+  $('#btn3').click(function () {
+    if (moving) {
+      console.log('别闹，正在动呢...');
+      return
+    }
+    moving = true
+    $('.div1').animate({
+      left : 50
+    },1000,function () {
+      moving = false
+      var left = $('.div1').position().left
+      // alert(left)
+    })
+  })
+
+  //  4.停止动画
+    // 1.停止所有的动画
+  // $('#btn4').click(function () {
+  //   $('.div1').stop(true)
+  // })
+    // 2.停止当前动画，直接开始下一个动画
+
+    // 3.停止并结束当前动画，开始下一个动画
+
 </script>
 </body>
 </html>

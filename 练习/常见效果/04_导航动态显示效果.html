@@ -113,5 +113,14 @@
   </ul>
 </div>
 
+<script src="../../js/jquery-3.6.0.js"></script>
+<script>
+  $('#navigation>ul>li:has("ul")').hover(function () {
+    $(this).children('ul').stop().slideDown()
+  },function () {
+    $(this).children('ul').stop().slideUp()
+  })
+</script>
+
 </body>
 </html>

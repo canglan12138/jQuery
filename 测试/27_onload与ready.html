@@ -27,6 +27,31 @@
    3. 在 window.onload 中打印宽度
    4. 在 img 加载完成后打印宽度
    */
+
+  // 1. 直接打印img的宽度，观察其值
+  console.log('直接打印img的宽度，观察其值' + $('#logo').width());
+
+  // 2. 在 $(function(){}) 中 打印 img 的宽度
+
+  $(function () {
+    console.log('在 $(function(){}) 中 打印 img 的宽度' + $('#logo').width());
+  })
+  $(function () {
+    console.log('2.在 $(function(){}) 中 打印 img 的宽度' + $('#logo').width());
+  })
+  // 3. 在 window.onload 中打印宽度
+  window.onload = function () {
+    console.log('在 window.onload 中打印宽度' + $('#logo').width());
+  }
+  window.onload = function () {
+    console.log('2.在 window.onload 中打印宽度' + $('#logo').width());
+  }
+
+  // 4. 在 img 加载完成后打印宽度
+  $('#logo').on('load',function () {
+    console.log('在 img 加载完成后打印宽度' + $('#logo').width());
+  })
+
 </script>
 </body>
 </html>

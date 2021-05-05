@@ -93,6 +93,9 @@ $(function () {
     //点击按钮 切换图片
     //获取当前列表的位置
     var currentLeft = $list.position().left
+    // if (currentLeft === -(COUNT + 1) * PAGE_WIDTH || currentLeft === 0) {
+    //   currentLeft = clickChange._currentLeft
+    // }
 
     //没有传第二个参数，则为图片顺序切换
     if (point_index === undefined) {
@@ -108,6 +111,26 @@ $(function () {
 
     //获取目标距离
     var target = currentLeft + offset
+
+    /*
+    * 采用自定义动画
+    * */
+
+    //第六张1.jpg
+    // if (currentLeft === -(COUNT + 1) * PAGE_WIDTH) {
+    //   currentLeft = -PAGE_WIDTH
+    //   //第一张5.jpg
+    // }else if (currentLeft === 0) {
+    //   currentLeft = -COUNT * PAGE_WIDTH
+    // }
+    //
+    //   $list
+    //       .animate({
+    //         left : target
+    //       },function () {
+    //         moving = false
+    //   })
+
 
     var timer = setInterval(function () {
       //重新定位
