@@ -74,12 +74,14 @@ $(function () {
 
         //鼠标移动的监听
         $maskTop.mousemove(function (event) {
+          //获取鼠标在 $maskTop 的位置
           var event_top = event.offsetY
           var event_left = event.offsetX
 
           var top = 0
           var left = 0
 
+          //黄块的位置
           top = event_top - mask_height/2
           left = event_left - mask_width/2
 
